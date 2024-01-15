@@ -1,9 +1,18 @@
-import ingredients from '../../ingredients.json'
+import Link from 'next/link';
+import React from 'react';
 
-export default function Home() {
+const HomePage = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1 className="text-4xl font-bold text-center">Recipe app</h1>
-    </main>
-  )
-}
+    <div className='max-w-7xl mx-auto my-3 flex flex-row justify-between items-center'>
+      <div>
+        <h1 className='text-3xl font-semibold'>YumSync</h1>
+      </div>
+      <div className='flex gap-2 items-center'>
+        <input type="text" className='border-[1px] py-1 px-3 rounded-md' placeholder='Search here...' />
+        <Link href="/addrecipe">Add recipe</Link>
+      </div>
+    </div>
+  );
+};
+
+export default HomePage;
