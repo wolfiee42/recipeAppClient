@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import useAxios from './useAxios';
 import Image from 'next/image';
+import Link from 'next/link';
 
 
 const ProductShowCase = () => {
@@ -17,10 +18,10 @@ const ProductShowCase = () => {
     return (
         <div className='grid grid-cols-3 gap-5'>
             {allrecipe && allrecipe.map(recipe =>
-                <div key={recipe._id} className='flex justify-center items-center flex-col bg-[#b8b8d1] rounded-md'>
+                <Link href={recipe._id} key={recipe._id} className='flex justify-center items-center flex-col bg-[#CECEDF] rounded-md hover:shadow-2xl hover:bg-[#B5B5CF] transition'>
                     <Image src={recipe.recipeImage} width={300} height={300} alt={`${recipe.recipeName}'s Picture`} className='rounded-xl m-5' />
                     <h3 className='text-xl mb-3 font-medium'>{recipe.recipeName}</h3>
-                </div>
+                </Link>
             )}
         </div>
     );

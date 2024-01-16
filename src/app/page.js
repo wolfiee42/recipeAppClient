@@ -25,8 +25,6 @@ const HomePage = () => {
       {/* recipe showcasing */}
       <div>
         <ProductShowCase />
-
-
       </div>
 
 
