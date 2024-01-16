@@ -85,13 +85,10 @@ const AddRecipeForm = () => {
         const recipe = { recipeName, ingridients, instruction, recipeImage };
         axiosCall.post('/recipes', recipe)
             .then(result => {
-                console.log(result.data);
                 if (result.data.insertedId) {
                     reset();
                     toast.success('Congratulation! Recipe have been created.')
-
                 }
-
             })
             .catch(error => {
                 console.log(error);
