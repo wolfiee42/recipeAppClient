@@ -6,7 +6,7 @@ import useAxios from "./useAxios";
 import toast from "react-hot-toast";
 import Select from 'react-select'
 import { useState } from "react";
-
+import { useRouter } from "next/navigation";
 
 const AddRecipeForm = () => {
 
@@ -55,12 +55,13 @@ const AddRecipeForm = () => {
         { "value": "Doi", "label": "Doi" }
     ]
 
-
     const axiosCall = useAxios();
     const { register, handleSubmit, reset } = useForm();
     const key = process.env.NEXT_PUBLIC_KEY;
     const imgHostingApi = `https://api.imgbb.com/1/upload?key=${key}`;
     const [selectedOptions, setSelectedOptions] = useState([]);
+    const router = useRouter();
+
 
     const handleChange = (selectedOption) => {
         setSelectedOptions(selectedOption);
@@ -87,7 +88,8 @@ const AddRecipeForm = () => {
             .then(result => {
                 if (result.data.insertedId) {
                     reset();
-                    toast.success('Congratulation! Recipe have been created.')
+                    toast.success('Congratulation! Recipe have been created.');
+                    router.push('/')
                 }
             })
             .catch(error => {

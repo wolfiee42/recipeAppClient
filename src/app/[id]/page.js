@@ -1,11 +1,11 @@
 "use client"
 
+import DeleteBtn from "@/components/DeleteBtn";
 import useAxios from "@/components/useAxios";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaArrowLeft, FaEdit } from "react-icons/fa";
-import { MdOutlineDelete } from "react-icons/md";
 
 
 const IndivitualRecipe = ({ params }) => {
@@ -22,7 +22,7 @@ const IndivitualRecipe = ({ params }) => {
     }, []);
     return (
         <div className="max-w-7xl mx-auto my-40">
-             <Link href="/"> <FaArrowLeft className="text-3xl text-[#4D5080] my-5" /></Link>
+            <Link href="/"> <FaArrowLeft className="text-3xl text-[#4D5080] my-5" /></Link>
             <div className="flex flex-row justify-center">
                 <div>
                     <Image src={recipe?.recipeImage} width={500} height={500} />
@@ -40,7 +40,7 @@ const IndivitualRecipe = ({ params }) => {
                     </div>
                     <p className="flex-grow"></p>
                     <div className="flex flex-row gap-2">
-                        <button className="bg-[#404063] text-white rounded-xl px-5 py-2 transition hover:bg-red-500 uppercase flex items-center justify-center gap-1">delete <MdOutlineDelete className="text-xl" /></button>
+                        <DeleteBtn id={recipeID} />
                         <button className="bg-[#404063] text-white rounded-xl px-5 py-2 transition hover:bg-green-500 uppercase flex items-center justify-center gap-1">update <FaEdit /></button>
                     </div>
                 </div>
