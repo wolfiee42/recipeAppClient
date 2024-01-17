@@ -41,7 +41,7 @@ const IndivitualRecipe = ({ params }) => {
                     <p className="flex-grow"></p>
                     <div className="flex flex-row gap-2">
                         <DeleteBtn id={recipeID} />
-                        <button className="bg-[#404063] text-white rounded-xl px-5 py-2 transition hover:bg-green-500 uppercase flex items-center justify-center gap-1">update <FaEdit /></button>
+                        <Link href={`/${recipe?._id}/updaterecipe`} className="bg-[#404063] text-white rounded-xl px-5 py-2 transition hover:bg-green-500 uppercase flex items-center justify-center gap-1">update <FaEdit /></Link>
                     </div>
                 </div>
             </div>
