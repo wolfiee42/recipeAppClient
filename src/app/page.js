@@ -13,7 +13,7 @@ const HomePage = () => {
         </div>
         <div className='flex gap-2 items-center'>
           <input type="text" className='border-[1px] py-1 px-3 rounded-md' placeholder='Search here...' />
-          <Link href="/addrecipe">Add recipe</Link>
+          <Link href="/addrecipe" className='hover:bg-[#5b5f97] px-3 py-1 hover:text-white rounded-lg transition delay-100'>Add recipe</Link>
         </div>
         <Toaster
           position="bottom-right"
