@@ -6,15 +6,26 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 
-const ProductShowCase = () => {
+const ProductShowCase = ({ search }) => {
     const axiosCall = useAxios();
     const [allrecipe, setAllRecipe] = useState();
-    useEffect(() => {
-        axiosCall.get("/allrecipes")
-            .then(result => {
-                setAllRecipe(result.data);
-            });
-    }, []);
+    if (search) {
+        useEffect(() => {
+            axiosCall.get(`/allrecipes?search=${search}`)
+                .then(result => {
+                    setAllRecipe(result.data);
+                });
+        }, [search]);
+    } else {
+        useEffect(() => {
+            axiosCall.get(`/allrecipes`)
+                .then(result => {
+                    setAllRecipe(result.data);
+                });
+        }, []);
+    }
+
+
     return (
         <div className='grid grid-cols-3 gap-5'>
             {allrecipe && allrecipe.map(recipe =>
