@@ -9,22 +9,24 @@ import Link from 'next/link';
 const ProductShowCase = ({ search }) => {
     const axiosCall = useAxios();
     const [allrecipe, setAllRecipe] = useState();
-    if (search) {
-        useEffect(() => {
-            axiosCall.get(`/allrecipes?search=${search}`)
-                .then(result => {
-                    setAllRecipe(result.data);
-                });
-        }, [search]);
-    } else {
-        useEffect(() => {
-            axiosCall.get(`/allrecipes`)
-                .then(result => {
-                    setAllRecipe(result.data);
-                });
-        }, []);
-    }
-
+    
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          let result;
+          if (search) {
+            result = await axiosCall.get(`/allrecipes?search=${search}`);
+          } else {
+            result = await axiosCall.get(`/allrecipes`);
+          }
+          setAllRecipe(result.data);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+    
+      fetchData();
+    }, [search]); // 
 
     return (
         <div className='grid grid-cols-3 gap-5'>
