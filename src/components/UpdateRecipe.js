@@ -86,7 +86,7 @@ const UpdateRecipe = ({ recipeID }) => {
         const recipe = { recipeName, ingridients, instruction, recipeImage };
         axiosCall.put(`/${recipeID}`, recipe)
             .then(res => {
-                console.log(res.data);
+                
                 if (res.data.modifiedCount > 0) {
                     router.push(`/${recipeID}`);
                     toast.success("recipe Updated Successfully.")
