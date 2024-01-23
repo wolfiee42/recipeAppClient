@@ -4,7 +4,7 @@
 - For clone just type `git clone repositoryName` in command prompt and for download extract the file.
 - then `cd repositoryName`
 - After that run `npm i` to download all the dependencies .
-- in `AddRecipeForm` and `UpdateRecipe` change key variable to `NEXT_PUBLIC_KEY=af6b6080e420e4c42e573058a95ae322`
+- in `AddRecipeForm` and `UpdateRecipe` change key variable to `process.env.NEXT_PUBLIC_KEY` to `af6b6080e420e4c42e573058a95ae322`
 - Then run `npm run dev` to run the website.
 
 
